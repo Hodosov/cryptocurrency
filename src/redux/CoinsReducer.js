@@ -1,4 +1,6 @@
-const GETCOINS = 'GETCOLIS'
+import * as axios from 'axios'
+
+const GET_COINS = 'GET_COINS'
 
 let initialState = {
     coins: []
@@ -6,7 +8,7 @@ let initialState = {
 
 export const coinsReducer = (state= initialState, action) => {
     switch(action.type){
-        case(GETCOINS):
+        case(GET_COINS):
         return ({
             ...state,
             coins: [...state.coins, ...action.coins]            
@@ -15,4 +17,10 @@ export const coinsReducer = (state= initialState, action) => {
     }
 }
 
-export const getCoinsAC = (coins) => ({type: GETCOINS, coins})
+const getCoinsAC = (coins) => ({type: GET_COINS, coins})
+
+export const getCoinsThunk = () => (dispatch) => {
+     return axios.get('https://api.coinranking.com/v1/public/coins')
+    .then(response => dispatch(getCoinsAC(response.data.data.coins)))
+}
+

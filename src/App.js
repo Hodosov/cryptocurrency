@@ -1,11 +1,9 @@
 import React from 'react';
-import { CoinsCard } from './components/CoinsCard';
+import { CoinsCards } from './components/CoinsCardContainer';
 
 function App() {
   return (
-    <div>
-      <CoinsCard />
-    </div>
+      <CoinsCards />
   );
 }
 
