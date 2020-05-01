@@ -10,21 +10,28 @@ class CoinCardContainer extends React.Component {
     }
 
     render() {
-        return <div>
-            {this.props.coins.map(el => <CoinCard
-                color={el.color}
-                key={el.id}
-                src={el.iconUrl}
-                name={el.name}
-            />
-            )}
-        </div>
+        return (
+            <div>
+                {this.props.loading 
+                ?  <div>
+                    {this.props.coins.map(el => <CoinCard
+                        color={el.color}
+                        key={el.id}
+                        src={el.iconUrl}
+                        name={el.name}
+                    />
+                    )}
+                </div>
+                : <h1>ERROR</h1>}
+            </div>
+        )
     }
 }
 
 let mapStateToProps = (state) => {
     return {
-        coins: state.coins.coins
+        coins: state.coins.coins,
+        loading: state.coins.loading
     }
 }
 
