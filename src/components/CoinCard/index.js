@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Icon } from './styles'
+import { Chart } from './Chart'
 
 export const CoinCard = (props) => {
     return (
@@ -8,7 +9,10 @@ export const CoinCard = (props) => {
                 key={props.key}>
                 <Icon src={props.src} />
                 {props.name}
-            </Card>
+                <Chart history={props.history} 
+                color={props.color}
+                />
+        </Card>
     )
 }
 

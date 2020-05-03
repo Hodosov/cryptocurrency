@@ -19,6 +19,7 @@ class CoinCardContainer extends React.Component {
                         key={el.id}
                         src={el.iconUrl}
                         name={el.name}
+                        history={el.history}
                     />
                     )}
                 </div>

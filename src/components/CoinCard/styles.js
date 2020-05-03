@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { contrast } from '../../function/colorFunction'
 
 export const Card = styled.div`
+    display: flex;
     background-color: ${props => props.color};
     color: ${props => contrast(props.color)};
     height: 100px;
